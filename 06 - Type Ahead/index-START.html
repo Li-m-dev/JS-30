@@ -25,7 +25,7 @@ fetch(endpoint)
     .then(rep => rep.json())
     .then(data => cities.push(...data));
 
-console.log(cities);
+// console.log(cities);
 
   function findMatches (wordToMatch, cities) {
     return cities.filter(place => {
@@ -40,7 +40,7 @@ console.log(cities);
 
   function displayMatches () {
     const matchArray = findMatches(this.value, cities);
-    console.log(matchArray);
+    // console.log(matchArray);
     const html = matchArray.map(place => {
       const regex = new RegExp(this.value, 'gi');
       const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
