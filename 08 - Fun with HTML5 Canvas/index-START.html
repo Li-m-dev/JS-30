@@ -17,11 +17,13 @@
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
   ctx.lineWidth = 50;
+  ctx.globalCompositeOperation = 'source-over';
 
   let isDrawing = false;
   let lastX = 0;
   let lastY = 0;
   let hue = 0;
+  let direction = true;
 
   function draw (e) {
     if(!isDrawing) return; // stop the fn running when whe mouse is not down
@@ -33,7 +35,14 @@
     ctx.stroke();
     [lastX,lastY]= [e.offsetX, e.offsetY];
     hue++;
-    
+    if(ctx.lineWidth >= 50 || ctx.lineWidth <= 1) {
+      direction = !direction;
+    }
+    if(direction){
+      ctx.lineWidth++;
+    } else {
+      ctx.lineWidth--;
+    }
   }
 
   canvas.addEventListener('mousedown', (e) => {
