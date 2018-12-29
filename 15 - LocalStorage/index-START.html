@@ -46,8 +46,12 @@
       checked: false
     }
     items.push(item);
+    // console.log('item: ', item);
+    // console.log('this: ', this);
+    // console.table(items);
     populateList(items, itemsList);
     localStorage.setItem('items', JSON.stringify(items));
+    console.log('localStorage: ', localStorage);
     this.reset();
   }
 
@@ -61,7 +65,20 @@
       `;
     }).join('');
   }
+
+  function toggleDone(e) {
+    if(!e.target.matches('input')) return;
+    console.log('e.target: ', e.target);
+    const el = e.target;
+    const index = el.dataset.index;
+    console.log('index: ', index);
+    items[index].checked = !items[index].checked;
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList);
+  }
+
   addItems.addEventListener('submit', addItem);
+  itemsList.addEventListener('click', toggleDone);
 
   populateList(items, itemsList);
 </script>
