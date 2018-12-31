@@ -32,6 +32,9 @@
       p = document.createElement('p');
       words.appendChild(p)
     }
+    if(transcript.includes('love')) {
+      alert('logan')
+    }
   })
   recognition.addEventListener('end', recognition.start);
 
