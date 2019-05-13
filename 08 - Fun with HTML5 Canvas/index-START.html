@@ -10,7 +10,7 @@
   const canvas = document.querySelector('#draw');
   console.log('canvas: ', canvas);
   const ctx = canvas.getContext('2d');
-  console.log('ctx: ', ctx);
+  // console.log('ctx: ', ctx);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   ctx.strokeStyle = '#BADA55';
@@ -27,7 +27,7 @@
 
   function draw (e) {
     if(!isDrawing) return; // stop the fn running when whe mouse is not down
-    console.log(e);
+    // console.log(e);
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
